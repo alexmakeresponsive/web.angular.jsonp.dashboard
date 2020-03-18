@@ -11,6 +11,7 @@ import {PageDashboardProfileComponent}            from "./page/profile/component
 import {PageDashboardErrorComponent}            from "./page/error/component";
 import {PageDashboardHomeComponent}             from "./page/home/component";
 import {PageDashboardLoginComponent}            from "./page/login/component";
+import {PageDashboardSaveComponent}            from "./page/save/component";
 
 import {PartHeaderComponent}                    from "./part/header/component";
 import {PartNavHomeComponent}                   from "./part/nav/home/component";
@@ -23,6 +24,7 @@ import {PartNavMainComponent}                   from "./part/nav/main/component"
     PageDashboardErrorComponent,
     PageDashboardHomeComponent,
     PageDashboardLoginComponent,
+    PageDashboardSaveComponent,
 
     PartHeaderComponent,
     PartNavHomeComponent,

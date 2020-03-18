@@ -2,5 +2,11 @@ import { Injectable } from '@angular/core';
 
 @Injectable({providedIn: 'root'})
 export class StorageData {
-  collection = [];
+
+  vk = {
+    data: {
+      self: null,
+      friends: null
+    }
+  }
 }

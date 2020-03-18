@@ -8,6 +8,7 @@ import {AuthGuard}                                        from "@CommonServiceAu
 import {PageDashboardHomeComponent}                       from "@DashboardModule/routed/page/home/component";
 import {PageDashboardProfileComponent}                    from "@DashboardModule/routed/page/profile/component";
 import {PageDashboardLoginComponent}                      from "@DashboardModule/routed/page/login/component";
+import {PageDashboardSaveComponent}                      from "@DashboardModule/routed/page/save/component";
 import {PageDashboardErrorComponent}                      from "@DashboardModule/routed/page/error/component";
 
 
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'profile',                                  component: PageDashboardProfileComponent, canActivate: [AuthGuard] },
 
   { path: 'login',                                    component: PageDashboardLoginComponent},
+  { path: 'save',                                    component: PageDashboardSaveComponent},
 
 
   { path: '**',                                       component: PageDashboardErrorComponent},

@@ -11,6 +11,15 @@
   <link rel="stylesheet" href="/assets/code/vendor/tw/bootstrap/4/bootstrap.theme.sandstone.min.css">
 </head>
 <body>
-<app-root></app-root>
+  <app-root></app-root>
+
+  <script>
+    function callbackFuncSelf(result) {
+      window.dispatchEvent(new CustomEvent('dataSelf', {detail: result.response[0]}));
+    }
+    function callbackFuncFriend(result) {
+      window.dispatchEvent(new CustomEvent('dataFriends', {detail: result.response}));
+    }
+  </script>
 </body>
 </html>

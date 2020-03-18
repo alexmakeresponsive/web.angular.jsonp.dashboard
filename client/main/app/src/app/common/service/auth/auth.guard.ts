@@ -5,6 +5,15 @@ import { Injectable } from '@angular/core';
 
 @Injectable({providedIn: 'root'})
 export class AuthGuard implements CanActivate {
+
+  vk = {
+    id:    '',
+    token: ''
+  };
+
+  access = false;
+
+
   constructor(
     private router: Router,
   ) {
@@ -15,7 +24,11 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot
   ):Promise<any> | boolean {
 
-    this.router.navigateByUrl('login');
-    return false;
+    if (this.access) {
+      return true;
+    } else {
+      this.router.navigateByUrl('login');
+      return false;
+    }
   }
 }
