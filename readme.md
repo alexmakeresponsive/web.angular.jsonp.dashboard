@@ -2,7 +2,7 @@
 
 ## Description
 
-Use you social account for authorization on resourse
+Use you social account for authorization on resource
 
 ## Demo
 
