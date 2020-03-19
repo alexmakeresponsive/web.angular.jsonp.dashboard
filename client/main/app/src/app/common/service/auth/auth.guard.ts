@@ -2,6 +2,7 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Rout
 
 import { Injectable } from '@angular/core';
 
+import {environment} from "@AppModule/../environments/environment";
 
 @Injectable({providedIn: 'root'})
 export class AuthGuard implements CanActivate {
@@ -29,12 +30,14 @@ export class AuthGuard implements CanActivate {
        auth = JSON.parse(window.localStorage.auth);
     }
 
+    const domain = environment.domain;
+
     if (this.access) {
       return true;
     } else {
 
       if(!auth.logout) {
-        window.location.href = "https://oauth.vk.com/authorize?client_id=7227371&display=page&redirect_uri=http://domboot.amrxt.local/save&scope=friends&response_type=token&v=5.103&state=123456";
+        window.location.href = `https://oauth.vk.com/authorize?client_id=7227371&display=page&redirect_uri=http://${domain}/save&scope=friends&response_type=token&v=5.103&state=123456`;
       } else {
         this.router.navigateByUrl('login');
       }
