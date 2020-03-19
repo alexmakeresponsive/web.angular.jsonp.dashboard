@@ -37,18 +37,23 @@ export class PageDashboardSaveComponent implements AfterViewInit{
   }
 
   ngAfterViewInit(): void {
-    var id           = this.getParameterByName('user_id', window.location.href);
-    var token        = this.getHash(window.location.hash);
+    const id           = this.getParameterByName('user_id', window.location.href);
+    const token        = this.getHash(window.location.hash);
+
+    const urlLastVisited = JSON.parse(window.localStorage.router).url.lastVisited;
+
 
     if (token) {
       this.authGuard.access = true;
 
       this.authGuard.vk.id    = id;
       this.authGuard.vk.token = token;
+
+      window.localStorage.auth = JSON.stringify({logout: false});
     }
 
     if (this.authGuard.access) {
-      this.router.navigateByUrl('');
+      this.router.navigateByUrl(urlLastVisited);
     } else {
       this.router.navigateByUrl('login');
     }

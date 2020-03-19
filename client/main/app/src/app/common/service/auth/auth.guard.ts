@@ -13,7 +13,6 @@ export class AuthGuard implements CanActivate {
 
   access = false;
 
-
   constructor(
     private router: Router,
   ) {
@@ -24,10 +23,18 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot
   ):Promise<any> | boolean {
 
+    const auth = JSON.parse(window.localStorage.auth);
+
     if (this.access) {
       return true;
     } else {
-      this.router.navigateByUrl('login');
+
+      if(!auth.logout) {
+        window.location.href = "https://oauth.vk.com/authorize?client_id=7227371&display=page&redirect_uri=http://domboot.amrxt.local/save&scope=friends&response_type=token&v=5.103&state=123456";
+      } else {
+        this.router.navigateByUrl('login');
+      }
+
       return false;
     }
   }
