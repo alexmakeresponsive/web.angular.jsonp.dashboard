@@ -8,12 +8,22 @@ import {StorageData} from "@CommonServiceStorageModule/storage.data";
   styleUrls: ['./component.styl']
 })
 export class PageDashboardProfileComponent implements OnInit{
+
+  data: {
+    self:any,
+    friends:any
+  } = {
+    self: null,
+    friends: null
+  };
+
   constructor(
     private storageData:StorageData,
   ) {
   }
 
   ngOnInit(): void {
-    console.log(this.storageData);
+    this.data.self    = this.storageData.vk.data.self;
+    this.data.friends = this.storageData.vk.data.friends;
   }
 }

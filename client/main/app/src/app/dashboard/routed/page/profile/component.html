@@ -3,8 +3,31 @@
 <div class="wrapper-page">
   <div class="container">
     <div class="row">
-      <div class="col-12">
-        profile page
+      <div class="col-4">
+        <div *ngIf="data.self">
+
+          <a href="{{'https://vk.com/id' + data.self.id}}" target="_blank">
+            <img src="{{data.self.photo_200}}"  width="100" height="100" alt="">
+          </a>
+          <p>
+            {{data.self.first_name}} {{data.self.last_name}}
+          </p>
+
+        </div>
+      </div>
+      <div class="col-8">
+        <div *ngIf="data.friends">
+
+          <div *ngFor="let item of data.friends.items">
+            <a href="{{'https://vk.com/id' + item.id}}" target="_blank">
+              <img src="{{item.photo_200}}"  width="100" height="100" alt="">
+            </a>
+            <p>
+              {{item.first_name}} {{item.last_name}}
+            </p>
+          </div>
+
+        </div>
       </div>
     </div>
   </div>

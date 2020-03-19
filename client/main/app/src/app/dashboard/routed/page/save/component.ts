@@ -87,14 +87,12 @@ export class PageDashboardSaveComponent implements AfterViewInit{
 
   @HostListener('window:dataSelf', ['$event'])
   dataSelfListener(event) {
-    console.log(event);
     this.storageData.vk.data.self = event.detail;
     this.checkEventListenerCount();
   }
 
   @HostListener('window:dataFriends', ['$event'])
   dataFriendsListener(event) {
-    console.log(event);
     this.storageData.vk.data.friends = event.detail;
     this.checkEventListenerCount();
   }
