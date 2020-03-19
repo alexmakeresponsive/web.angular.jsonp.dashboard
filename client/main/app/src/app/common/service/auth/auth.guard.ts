@@ -23,7 +23,11 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot
   ):Promise<any> | boolean {
 
-    const auth = JSON.parse(window.localStorage.auth);
+    let auth = {logout:true};
+
+    if (window.localStorage.hasOwnProperty('auth')) {
+       auth = JSON.parse(window.localStorage.auth);
+    }
 
     if (this.access) {
       return true;
