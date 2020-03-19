@@ -31,13 +31,14 @@ export class AuthGuard implements CanActivate {
     }
 
     const domain = environment.domain;
+    const client_id = environment.service.vk.auth.client_id;
 
     if (this.access) {
       return true;
     } else {
 
       if(!auth.logout) {
-        window.location.href = `https://oauth.vk.com/authorize?client_id=7227371&display=page&redirect_uri=http://${domain}/save&scope=friends&response_type=token&v=5.103&state=123456`;
+        window.location.href = `https://oauth.vk.com/authorize?client_id=${client_id}&display=page&redirect_uri=http://${domain}/save&scope=friends&response_type=token&v=5.103&state=123456`;
       } else {
         this.router.navigateByUrl('login');
       }

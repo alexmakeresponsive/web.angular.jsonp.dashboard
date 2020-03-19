@@ -10,6 +10,7 @@ import {environment} from "@AppModule/../environments/environment";
 export class FormSignInComponent implements OnInit{
 
   domain:string;
+  client_id:number;
 
   constructor(
 
@@ -17,6 +18,7 @@ export class FormSignInComponent implements OnInit{
   }
 
   ngOnInit() {
+    this.client_id = environment.service.vk.auth.client_id;
     this.domain = environment.domain;
   }
 }

@@ -4,7 +4,14 @@
 
 export const environment = {
   production: false,
-  domain: 'domboot.amrxt.local'
+  domain: 'domboot.amrxt.local',
+  service: {
+    vk: {
+      auth: {
+        client_id: 7364885
+      }
+    }
+  }
 };
 
 /*
